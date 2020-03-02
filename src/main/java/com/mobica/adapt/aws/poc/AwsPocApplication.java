@@ -43,7 +43,7 @@ public class AwsPocApplication {
     public AmazonS3 amazonS3(AwsClientBuilder.EndpointConfiguration endpointConfiguration) {
         return AmazonS3ClientBuilder.standard()
                 .withPathStyleAccessEnabled(true)
-                .withEndpointConfiguration(endpointConfiguration)
+                //.withEndpointConfiguration(endpointConfiguration)
                 .build();
     }
 
@@ -115,7 +115,7 @@ class TestController {
 		try {
 			// Download file
             System.out.println("Downloading file from S3 to file\n");
-			S3Object objectPortion = amazonS3.getObject(new GetObjectRequest(bucketName, keyName));
+			//S3Object objectPortion = amazonS3.getObject(new GetObjectRequest(bucketName, keyName));
 			System.out.println("Printing bytes retrieved:");
             response = displayTextInputStream(objectPortion.getObjectContent());
             System.out.println(response);
